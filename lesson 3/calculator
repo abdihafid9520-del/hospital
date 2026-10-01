@@ -1,0 +1,50 @@
+"""A simple command-line calculator."""
+
+
+def get_number(prompt):
+    """Keep asking until the user enters a valid number."""
+    while True:
+        try:
+            return float(input(prompt))
+        except ValueError:
+            print("Please enter a valid number.")
+
+
+def calculate(first, operator, second):
+    """Return the result for a supported arithmetic operation."""
+    if operator == "+":
+        return first + second
+    if operator == "-":
+        return first - second
+    if operator == "*":
+        return first * second
+    if operator == "/":
+        if second == 0:
+            return "Error: you cannot divide by zero."
+        return first / second
+    return "Error: choose +, -, *, or /."
+
+
+def main():
+    print("Welcome to the calculator! Type q at the operator prompt to quit.")
+
+    while True:
+        first_number = get_number("First number: ")
+        operator = input("Operator (+, -, *, /): ").strip()
+
+        if operator.lower() == "q":
+            print("Goodbye!")
+            break
+
+        second_number = get_number("Second number: ")
+        result = calculate(first_number, operator, second_number)
+        print(f"Result: {result}")
+
+        again = input("Calculate again? (yes/no): ").strip().lower()
+        if again not in ("yes", "y"):
+            print("Goodbye!")
+            break
+
+
+if __name__ == "__main__":
+    main()

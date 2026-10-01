@@ -1,0 +1,10 @@
+name=input(str("enter u full name?"))
+age=input("enter your age?")
+course=input(str("enter course name?"))
+coursefee=input("enter coursen fee?")
+
+print("----regestration summary------")
+print("your name is", name)
+print("what is your age", age)
+print("what is your course", course)
+print("course fee amount", course)
